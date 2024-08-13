@@ -10,26 +10,19 @@ runs-on: ubuntu-latest
 
 steps:
 
-name: Checkout code
+  name: Checkout code
+  uses: actions/checkout@v3 
+  
+  name: Set up Node.js
+  uses: actions/setup-node@v3   
+  with:
+    node-version: '14'
 
-uses: actions/checkout@v3
-
-- name: Set up Node.js
-
-uses: actions/setup-node@v3
-
-with:
-
-node-version: '14'
-
-- name: Install dependencies
-
-run: npm install
+ - name: Install dependencies
+  run: npm install
 
 - name: Run JavaScript file
-
-run: node app.js
+  run: node app.js
 
 - name: Test
-
-run: echo 'Test was successful'
+  run: echo 'Test was successful'
